@@ -1,3 +1,4 @@
 import pymongo
-client = pymongo.MongoClient("mongodb+srv://distilUser:whatever12@distil-tatww.gcp.mongodb.net/test?retryWrites=true&w=majority")
+import config
+client = pymongo.MongoClient(f"mongodb+srv://distilUser:{config.getPassword()}@distil-tatww.gcp.mongodb.net/test?retryWrites=true&w=majority")
 db = client.test
