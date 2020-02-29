@@ -1,9 +1,11 @@
 from flask import Flask, render_template
 from UsersAPI import users_api
+from WebPortal import web_portal
 
 app = Flask(__name__)
 
 app.register_blueprint(users_api)
+app.register_blueprint(web_portal)
 
 @app.route("/")
 def hello():
