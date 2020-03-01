@@ -1,9 +1,14 @@
 from flask import Blueprint, render_template
 from flask import request
-from web_app.TransloaditInterface import TransloaditInterface
+# from web_app.TransloaditInterface import TransloaditInterface
 
 web_portal = Blueprint('web_portal', __name__)
 
+@web_portal.route("/")
+def displayLoginPage():
+    return render_template("index.html")
+
+@web_portal.route("/login")
 
 @web_portal.route("/displayModule")
 def displayModule():
@@ -14,7 +19,7 @@ def displayModule():
     return render_template("lecture/module.html", title=title, videos=videos, videos_len=videos_len)
 
 
-@web_portal.route("/deliver")
+@web_portal.route("/deliver", methods=["POST","GET"])
 def deliverModule():
     module_id = request.args.get("id")
     title = "Artificial Intelligence" # actually use module ID for this bit

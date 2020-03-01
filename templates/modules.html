@@ -1,0 +1,12 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<h1>Modules</h1>
+
+    <div class="container2">
+{% for module in moduleList %}
+<form method="post" action="/users/getLectureInfo">
+<input class="module" value="{{module['courseName']}} - {{module['lecturerName']}}" type="submit" data="{{module['_id']}}">
+<input name="moduleID" type="hidden" value="{{module['_id']}}">
+</form>
+{% endfor %}
+</div>

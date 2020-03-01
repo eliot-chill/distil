@@ -1,0 +1,19 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<h1>Lectures</h1>
+
+    <div class="container3">
+{% for lecture in lectureList %}
+<form method="post" action="/user/lecture/getLecture">
+<input class="lecture" value="{{lecture['lectureName']}} - {{lecture['lecturer']}}" type="submit" data="{{lecture['_id']}}">
+<input name="lectureID" type="hidden" value="{{lecture['_id']}}">
+</form>
+{% endfor %}
+<div>
+    <form method="post" action="/deliver">
+        <input class="lecture" value="New Lecture" type="submit">
+    </form>
+</div>
+</div>
+
+

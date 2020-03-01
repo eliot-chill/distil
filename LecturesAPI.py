@@ -27,7 +27,7 @@ def getComments():
 
 @lectures_api.route("/lecture/upvoteComment", methods=["GET","POST"])
 def upvoteComment():
-    lectureObj.upvoteCommentFromLectureAndCommentID(request.args.get['lectureID'],request.args.get['commentID'])
+    lectureObj.upvoteCommentFromLectureAndCommentID(request.args.get('lectureID'),request.args.get('commentID'))
     return jsonify(success=True),200
 
 @lectures_api.route("/lecture/updateLive", methods=["GET","POST"])
