@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+</head>
+<body>
+  {% for i in range(0, videos_len)%}
+    <div class="video" thumbnail="{{ videos[i][2] }}">
+      <h3>{{ videos[i][0] }} - {{ videos[i][1] }}</h3>
+    </div>
+  {%endfor%}
+</body>
+</html>
