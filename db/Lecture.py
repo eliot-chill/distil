@@ -2,6 +2,7 @@ from db.dbConnect import DBConnect
 import pymongo
 from bson.objectid import ObjectId
 
+
 class Lecture(DBConnect):
 
     def createLecture(self, lectureName, lectureDate, lectureTime, lecturer):

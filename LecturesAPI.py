@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from db.Lecture import Lecture
+from bson.json_util import dumps
 import json
 
 lectures_api = Blueprint('lectures_api', __name__)
@@ -19,10 +20,9 @@ def addComment():
     lectureObj.addComment(rd["lectureID"],rd["comment"])
     return jsonify(success=True)
 
-@lectures_api.route("/lecture/getComments", methods=["POST"])
+@lectures_api.route("/lecture/getComments", methods=["POST","GET"])
 def getComments():
-    rd = request.get_json()
-    return json.dumps(lectureObj.getCommentsFromLectureID(rd["lectureID"]))
+    return dumps(lectureObj.getCommentsFromLectureID(request.args.get("lectureID")))
 
 
 @lectures_api.route("/lecture/upvoteComment", methods=["GET","POST"])
